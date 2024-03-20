@@ -55,20 +55,22 @@ function DrawSnakes(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12,
     ellipseMode(CENTER);
     
 
-	let animateCircleX = map(cur_frac, 0, 0.5, 0, 240);
-    let animateCircleY = map(cur_frac,0, 1, 0,540);
+	let animateCircleX1 = map(cur_frac, 0, 0.25, p1.x, p3.x,true);
+    let animateCircleY1 = map(cur_frac,0.25, 0.5, p3.y,p15.y,true);
+    let animateCircleX2 = map(cur_frac,0.5, 0.75,p1.x, p3.x, true);
+    let animateCircleY2 = map(cur_frac, 0.75, 1, p1.y, p15.y,true);
+    
 
+
+ circle(p1.y + animateCircleX1, p1.y,100);
+ circle(p3.x, animateCircleY1, 100);
+ circle(p3.x - animateCircleX2, p15.y,100);
+ circle(p1.x, p15.y -animateCircleY2, 100);
  
-let boundary1 = map(animateCircleX, 0, width, 0, 240);
-let boundary2 = map(animateCircleX, 0, height, 0, (540/2));
-
-circle(p1.y + animateCircleX, p1.y,100);
- circle(p3.x, animateCircleY, 100);
-// for(let ii = 0; ii<boundary1; ii++){
+// for(let ii = cur_frac; ii<animateCircleX && ii<animateCircleY; ii++){
 //     stroke(random(colors));
-//     circle(boundary1 -ii, p1.y, 50);
-//     //circle(p2.x, boundary2, 50);
-//     console.log(boundary1+ii);
+//     circle(p1.y + animateCircleX + ii, p1.y,100);
+//     circle(p3.x, animateCircleY + ii, 100);
 //  }
 
 }
