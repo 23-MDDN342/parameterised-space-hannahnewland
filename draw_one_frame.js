@@ -55,51 +55,78 @@ function DrawSnakes(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12,
     ellipseMode(CENTER);
     
 
-	let animateCircleX1 = map(cur_frac, 0, 0.25, p1.x, p3.x,true);
-    let animateCircleY1 = map(cur_frac,0.25, 0.5, p3.y,p15.y,true);
-    let animateCircleX2 = map(cur_frac,0.5, 0.75,p1.x, p3.x, true);
-    let animateCircleY2 = map(cur_frac, 0.75, 1, p1.y, p15.y,true);
+	let animateCircleX1 = map(cur_frac, 0, 0.25, p1.x, p2.x,true);
+    let animateCircleY1 = map(cur_frac,0.25, 0.5, p2.y,p8.y,true);
+    let animateCircleX2 = map(cur_frac,0.5, 0.75,p1.x, p2.x, true);
+    let animateCircleY2 = map(cur_frac, 0.75, 1, p1.y, p8.y,true);
+
+    let circleSize = 50
     
 
 
- circle(p1.y + animateCircleX1, p1.y,100);
- circle(p3.x, animateCircleY1, 100);
- circle(p3.x - animateCircleX2, p15.y,100);
- circle(p1.x, p15.y -animateCircleY2, 100);
+ for (let ii = 0; ii<animateCircleX1; ii++){
  
-// for(let ii = cur_frac; ii<animateCircleX && ii<animateCircleY; ii++){
-//     stroke(random(colors));
-//     circle(p1.y + animateCircleX + ii, p1.y,100);
-//     circle(p3.x, animateCircleY + ii, 100);
+//  if (cur_frac>0.25){
+//     push();
+//     noStroke();
+//     noFill();
+//     circle(p1.y + animateCircleX1, p1.y,circleSize);
+//     pop();
+//  } else{
+fill("FFFFFF");
+    stroke("FFFFFF");
+    circle(p1.y + animateCircleX1-(ii), p1.y,circleSize);
+// }
+ }
+
+
+
+ for (let ii = 0; ii<animateCircleY1; ii++){
+
+// if (cur_frac<=0.25 ||cur_frac>0.5){
+//     push();
+//     noStroke();
+//     noFill();
+//     circle(p2.x, animateCircleY1, circleSize);
+//     pop();
+//  } else{
+    fill("FFFFFF");
+    stroke("FFFFFF");
+    circle(p2.x, animateCircleY1-(ii), circleSize);
+// }
+ }
+
+
+
+ for (let ii = 0; ii<animateCircleX2; ii++){
+
+// if (cur_frac<=0.5|| cur_frac>0.75){
+//     push();
+//     noStroke();
+//     noFill();
+//     circle(p2.x - animateCircleX2, p8.y,circleSize);
+//     pop();
+//  } else{
+    fill("FFFFFF");
+    stroke("FFFFFF");
+    circle(p2.x - (animateCircleX2-ii), p8.y,circleSize);
+// }
+ }
+
+
+
+ for (let ii = 0; ii<animateCircleY2; ii++){
+
+// if (cur_frac<= 0.75 || cur_frac>1){
+//     push();
+//     noStroke();
+//     noFill();
+//     circle(p1.x, p8.y -animateCircleY2, circleSize);
+//     pop();
+//  } else{
+    fill("FFFFFF");
+    stroke("FFFFFF");
+    circle(p1.x, p8.y -(animateCircleY2-ii), circleSize);
 //  }
-
 }
-
- //let switch1 = map(cur_frac,0, 1, 0, 0.25);
-
- 
-
-	// for(let ii = 0; ii < Spacing; ii++){
-	// 		let currentX = p1.x; 
-    //         let currentY = p1.y; 
-	// 			stroke(random(colors));
-	// 			// let TravelEllipse = animateCircle - (ii*1);
-    //             // //let boundaries = constrain(TravelEllipse, Spacing, w);
-    //             // let boundaryX = constrain(TravelEllipse, 0, Spacing); // Adjusted boundary
-    //             // let boundaryY = constrain(TravelEllipse,0, Spacing);
-    //                 if(currentX < p2.x){
-    //                     currentX++;
-    //                 }
-    //                 // if (cur_frac > 0.25 && currentY < vector2.y){
-    //                 //     currentY++;
-    //                 // }
-    //                 console.log(p2.x)
-                   
-	// 			circle(currentX, currentY, HowManySquares*10);
-    //             //console.log(currentX)
-				
-	// 			}
-//    pop();
-
-        
-        
+}
