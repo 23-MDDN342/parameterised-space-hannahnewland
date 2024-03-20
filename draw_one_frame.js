@@ -55,14 +55,21 @@ function DrawSnakes(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12,
     ellipseMode(CENTER);
     
 
-	let animateCircleX1 = map(cur_frac, 0, 0.25, p1.x, p2.x,true);
-    let animateCircleY1 = map(cur_frac,0.25, 0.5, p2.y,p8.y,true);
-    let animateCircleX2 = map(cur_frac,0.5, 0.75,p1.x, p2.x, true);
-    let animateCircleY2 = map(cur_frac, 0.75, 1, p1.y, p8.y,true);
+	let animateCircleX1 = map(cur_frac, 0, 0.1111, p1.x, p3.x,true);
+    let animateCircleY1 = map(cur_frac,0.1111, 0.2222, p3.y,p15.y,true);
+    let animateCircleX2 = map(cur_frac,0.2222, 0.3333,p1.x, p3.x, true);
+    let animateCircleY2 = map(cur_frac, 0.3333, 0.4444, p1.y, p15.y,true);
+    let animateCircleX3 = map(cur_frac, 0.4444,0.5555,p1.x,p2.x+190,true);
+    let animateCircleY3 = map(cur_frac, 0.5555,0.6666,p3.y, p15.y-100,true);
+    let animateCircleX4 = map(cur_frac, 0.6666,0.7777, p1.x,p3.x-100,true);
+    let animateCircleY4 = map(cur_frac, 0.7777, 0.8888, p1.y, p15.y, true);
+    //let animateCircleX5 = map(cur_frac, 0.8888, 0.9999, )
 
-    let circleSize = 50
+    let circleSize = 100
     
-
+noFill();
+//stroke(random(colors));
+stroke("FFFFFF");
 
  for (let ii = 0; ii<animateCircleX1; ii++){
  
@@ -73,8 +80,7 @@ function DrawSnakes(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12,
 //     circle(p1.y + animateCircleX1, p1.y,circleSize);
 //     pop();
 //  } else{
-fill("FFFFFF");
-    stroke("FFFFFF");
+
     circle(p1.y + animateCircleX1-(ii), p1.y,circleSize);
 // }
  }
@@ -90,9 +96,8 @@ fill("FFFFFF");
 //     circle(p2.x, animateCircleY1, circleSize);
 //     pop();
 //  } else{
-    fill("FFFFFF");
-    stroke("FFFFFF");
-    circle(p2.x, animateCircleY1-(ii), circleSize);
+   
+    circle(p3.x, animateCircleY1-(ii), circleSize);
 // }
  }
 
@@ -107,9 +112,8 @@ fill("FFFFFF");
 //     circle(p2.x - animateCircleX2, p8.y,circleSize);
 //     pop();
 //  } else{
-    fill("FFFFFF");
-    stroke("FFFFFF");
-    circle(p2.x - (animateCircleX2-ii), p8.y,circleSize);
+   
+    circle(p3.x - (animateCircleX2-(ii)), p15.y,circleSize);
 // }
  }
 
@@ -124,9 +128,32 @@ fill("FFFFFF");
 //     circle(p1.x, p8.y -animateCircleY2, circleSize);
 //     pop();
 //  } else{
-    fill("FFFFFF");
-    stroke("FFFFFF");
-    circle(p1.x, p8.y -(animateCircleY2-ii), circleSize);
+   
+    circle(p1.x, p15.y -(animateCircleY2-ii), circleSize);
 //  }
 }
+for (let ii = 0; ii<animateCircleX3; ii++){
+  
+   
+        circle(p1.x + animateCircleX3-(ii), p2.y+100,circleSize);
+     }
+
+for (let ii = 0; ii<animateCircleY3; ii++){
+
+       
+            circle(p3.x-100, animateCircleY3-(ii), circleSize);
+    
+         }
+ for (let ii = 0; ii<animateCircleX4; ii++){
+  
+           
+                circle(p3.x - (animateCircleX4-(ii)), p15.y-100,circleSize);
+             }
+
+             for (let ii = 0; ii<animateCircleY4; ii++){
+               
+                 
+                    circle(p1.x+100, p15.y-(animateCircleY4-(ii)), circleSize);
+                
+                }
 }
