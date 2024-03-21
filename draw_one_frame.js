@@ -12,11 +12,14 @@ function preload(){
 
 // function for drawing the grid
     function draw_one_frame(cur_frac){
+      
 	width = 960;
 	height = 540;
 	let w = width;
 	let h = height;
 	fill("#1E441E");
+
+    //scale(2, 2);
 	rect(0,0,w,h);
 	
 
