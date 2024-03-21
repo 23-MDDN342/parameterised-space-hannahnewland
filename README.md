@@ -11,4 +11,5 @@ I then decided the sides of the canvas looked too empty, and added two additiona
 
 The next wall I hit was how to make it loop. After trying things like a snake moving across the canvas or snake teeth chomping down on the canvas, I decided a simple rectangle fading in and out was the best solution. I quite like the final outcome of this in particular, I think it almost looks like someone blinking. 
 
+I am really happy with the outcome of this code, I learned a lot on the way through all my attempts and mistakes.
 
