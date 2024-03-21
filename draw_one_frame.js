@@ -267,5 +267,43 @@ function DrawSnakesSides(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11,
         circle(p1.x+75, p1.y + animatedLeftSnakeY3 - ii, circleSizeSnake);
 
         image(imgSnakeHeadLeft,p1.x+50, animatedLeftSnakeY3,50,50);
+
     }
+
+
+
+        let animatedRightSnakeY1 = map(cur_frac, 0, 0.2, p1.y,p15.y, true);
+        let animatedRightSnakeX1 = map(cur_frac, 0.2,0.4, p1.x, p2.x-90,true);
+        let animatedRightSnakeY2 = map(cur_frac, 0.4, 0.6, p1.y, p15.y, true);
+        let animatedRightSnakeX2 = map(cur_frac, 0.6, 0.8, p1.x, p1.x+75, true);
+        let animatedRightSnakeY3 = map(cur_frac, 0.8, 1, p1.y, p15.y - 50, true);
+
+        for(let ii = 1; ii < animatedRightSnakeY1; ii++){
+
+            circle(p4.x + 90, p1.y + animatedRightSnakeY1 - ii, circleSizeSnake);
+        }
+
+        for(let ii = 1; ii< animatedRightSnakeX1; ii++){
+
+            circle(p4.x+90 + (animatedRightSnakeX1 -ii), p15.y, circleSizeSnake);
+        }
+
+        for( let ii = 1; ii< animatedRightSnakeY2; ii++){
+
+            circle(p5.x, p15.y - (animatedRightSnakeY2 - ii), circleSizeSnake);
+        }
+
+        for(let ii = 1; ii< animatedRightSnakeX2; ii++){
+
+            circle(p5.x- (animatedRightSnakeX2 - ii), p1.y, circleSizeSnake);
+        
+        }
+
+        for (let ii = 1; ii< animatedRightSnakeY3; ii++){
+
+            circle(p5.x-75, p1.y + (animatedRightSnakeY3 - ii), circleSizeSnake);
+            image(imgSnakeHeadLeft,p5.x-100, animatedRightSnakeY3,50,50);
+        }
+
+    
 }
