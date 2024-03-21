@@ -7,6 +7,7 @@ function preload(){
     imgScale = loadImage('scale.png');
     imgSnakeHead = loadImage('snakehead.png');
     imgSnakeHeadLeft = loadImage('snakeheadLeft.png');
+   
 }
 
 // function for drawing the grid
@@ -22,7 +23,7 @@ function preload(){
  
 	noStroke();
     
-    stroke("#FFFFFF");
+    //stroke("#FFFFFF");
 
     let p1 = createVector(0,0); //top left hand corner vector point
     let p2 = createVector(width/4, 0); // top 1/4 across vector point
@@ -61,26 +62,26 @@ function DrawSnakesFirstCentre(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10
 rectMode(CENTER);
         
 
-        if(cur_frac >0.9){
+        if(cur_frac >0.75){
             image(imgMouse,455,240*cur_frac,10,10);
         } else{
 
-            image(imgMouse,455,240*cur_frac);
+            image(imgMouse,455,245*cur_frac);
         }
 
     ellipseMode(CENTER);
 
     push();
     translate(240,0);
-	let animateCircleX1 = map(cur_frac, 0, 0.1, p1.x, p3.x,true);
-    let animateCircleY1 = map(cur_frac,0.1, 0.2, p3.y,p15.y,true);
-    let animateCircleX2 = map(cur_frac,0.2, 0.3,p1.x, p3.x, true);
-    let animateCircleY2 = map(cur_frac, 0.3, 0.4, p1.y, p15.y-100,true);
-    let animateCircleX3 = map(cur_frac, 0.4,0.5,p1.x,p2.x+140,true);
-    let animateCircleY3 = map(cur_frac, 0.5,0.6,p3.y, p15.y-200,true);
-    let animateCircleX4 = map(cur_frac, 0.6,0.7, p1.x,p3.x-200,true);
-    let animateCircleY4 = map(cur_frac, 0.7, 0.8, p1.y, p8.y-100, true);
-    let animateCircleX5 = map(cur_frac, 0.8, 0.9,p1.x, p2.x-100, true);
+	let animateCircleX1 = map(cur_frac, 0.1, 0.2, p1.x, p3.x,true);
+    let animateCircleY1 = map(cur_frac,0.2, 0.3, p3.y,p15.y,true);
+    let animateCircleX2 = map(cur_frac,0.3, 0.4,p1.x, p3.x, true);
+    let animateCircleY2 = map(cur_frac, 0.4, 0.5, p1.y, p15.y-100,true);
+    let animateCircleX3 = map(cur_frac, 0.5,0.55,p1.x,p2.x+140,true);
+    let animateCircleY3 = map(cur_frac, 0.55,0.6,p3.y, p15.y-200,true);
+    let animateCircleX4 = map(cur_frac, 0.6,0.65, p1.x,p3.x-200,true);
+    let animateCircleY4 = map(cur_frac, 0.65, 0.7, p1.y, p8.y-100, true);
+    let animateCircleX5 = map(cur_frac, 0.7,0.75,p1.x, p2.x-100, true);
     
 
     let circleSize = map(cur_frac,0,1,50,75,true);
@@ -236,11 +237,11 @@ function DrawSnakesSides(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11,
     let darkgreen = color("#152614");
     stroke(darkgreen);
     let circleSizeSnake = map(cur_frac,0,1,25,50,true);
-    let animatedLeftSnakeY1 = map(cur_frac, 0,0.2, p1.y, p15.y, true);
-    let animatedLeftSnakeX1 = map(cur_frac, 0.2, 0.4,p1.x, p1.x+150,true);
+    let animatedLeftSnakeY1 = map(cur_frac, 0.1,0.3, p1.y, p15.y, true);
+    let animatedLeftSnakeX1 = map(cur_frac, 0.3, 0.4,p1.x, p1.x+150,true);
     let animatedLeftSnakeY2 = map(cur_frac, 0.4, 0.6, p1.y, p15.y,true);
-    let animatedLeftSnakeX2 = map(cur_frac, 0.6,0.8, p1.x, p1.x+75,true);
-    let animatedLeftSnakeY3 = map(cur_frac, 0.8, 1, p1.y, p15.y - 50, true);
+    let animatedLeftSnakeX2 = map(cur_frac, 0.6,0.7, p1.x, p1.x+75,true);
+    let animatedLeftSnakeY3 = map(cur_frac, 0.7, 0.9, p1.y, p15.y - 50, true);
 
     for (let ii = 1; ii<animatedLeftSnakeY1; ii++){
 
@@ -272,11 +273,11 @@ function DrawSnakesSides(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11,
 
 
 
-        let animatedRightSnakeY1 = map(cur_frac, 0, 0.2, p1.y,p15.y, true);
-        let animatedRightSnakeX1 = map(cur_frac, 0.2,0.4, p1.x, p2.x-90,true);
+        let animatedRightSnakeY1 = map(cur_frac, 0.1, 0.3, p1.y,p15.y, true);
+        let animatedRightSnakeX1 = map(cur_frac, 0.3,0.4, p1.x, p2.x-90,true);
         let animatedRightSnakeY2 = map(cur_frac, 0.4, 0.6, p1.y, p15.y, true);
-        let animatedRightSnakeX2 = map(cur_frac, 0.6, 0.8, p1.x, p1.x+75, true);
-        let animatedRightSnakeY3 = map(cur_frac, 0.8, 1, p1.y, p15.y - 50, true);
+        let animatedRightSnakeX2 = map(cur_frac, 0.6, 0.7, p1.x, p1.x+75, true);
+        let animatedRightSnakeY3 = map(cur_frac, 0.7, 0.9, p1.y, p15.y - 50, true);
 
         for(let ii = 1; ii < animatedRightSnakeY1; ii++){
 
@@ -305,5 +306,21 @@ function DrawSnakesSides(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11,
             image(imgSnakeHeadLeft,p5.x-100, animatedRightSnakeY3,50,50);
         }
 
-    
+
+        rectMode(CORNER);
+        
+        let seeThroughAmount = 0
+        let whenfade = 0.7
+
+        if(cur_frac >= whenfade){
+
+            seeThroughAmount = map(cur_frac, whenfade, 0.95, 0, 255)
+        }
+
+        fill(30, 68, 30,seeThroughAmount);
+        
+        
+        rect(0,0, width,height);
+
+       
 }
