@@ -26,7 +26,7 @@ function preload(){
  
 	noStroke();
     
-    //stroke("#FFFFFF");
+    //creating the vectors 
 
     let p1 = createVector(0,0); //top left hand corner vector point
     let p2 = createVector(width/4, 0); // top 1/4 across vector point
@@ -44,6 +44,7 @@ function preload(){
     let p14 = createVector (width*(3/4), height);
     let p15 = createVector (width, height);
 
+    // this is the grid
     line(p1.x,p1.y,p11.x,p11.y);
     line(p2.x,p2.y,p12.x,p12.y);
     line(p3.x,p3.y,p13.x,p13.y);
@@ -59,7 +60,7 @@ function preload(){
 	}
 
 
-// function for drawing the snakes
+// function for drawing the middle snake
 function DrawSnakesFirstCentre(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15){
 	
 rectMode(CENTER);
@@ -95,9 +96,7 @@ rectMode(CENTER);
     let calpolygreen = color("#1E441E");
     let asparagusgreen = color("#60992D");
 noFill();
-//stroke(random(colors));
-// noiseColor = getNoiseValue(width, height*cur_frac, 0, "nColor", 0, 1, 500);
-// stroke(lerpColor(calpolygreen, asparagusgreen, noiseColor));
+
 
 
 stroke(asparagusgreen);
@@ -105,124 +104,61 @@ stroke(asparagusgreen);
 
  for (let ii = 1; ii<animateCircleX1; ii++){
  
-//  if (cur_frac>0.8){
-//     push();
-//     noStroke();
-//     noFill();
-//     circle(p1.y + animateCircleX1-(ii), p1.y,circleSize);
-//     pop();
-//  } else{
 
     circle(p1.y + animateCircleX1-(ii), p1.y,circleSize);
     
-//  }
+
  }
  for (let ii = 1; ii<animateCircleY1; ii++){
 
-// if (cur_frac>0.85){
-//     push();
-//     noStroke();
-//     noFill();
-//     circle(p3.x, animateCircleY1-(ii), circleSize);
-//     pop();
-//  } else{
+
    
     circle(p3.x, animateCircleY1-(ii), circleSize);
-   
-//  }
+
  }
  for (let ii = 1; ii<animateCircleX2; ii++){
 
-// if ( cur_frac>0.9){
-//     push();
-//     noStroke();
-//     noFill();
-//     circle(p3.x - (animateCircleX2-(ii)), p15.y,circleSize);
-//     pop();
-//  } else{
-   
+
     circle(p3.x - (animateCircleX2-(ii)), p15.y,circleSize);
-//  }
+
  }
  for (let ii = 1; ii<animateCircleY2; ii++){
 
-// if (cur_frac>0.95){
-//     push();
-//     noStroke();
-//     noFill();
-//     circle(p1.x, p15.y -(animateCircleY2-ii), circleSize);
-//     pop();
-//  } else{
+
    
     circle(p1.x, p15.y -(animateCircleY2-ii), circleSize);
-//  }
+
 }
 for (let ii = 1; ii<animateCircleX3; ii++){
   
-    // if (cur_frac>1){
-    //     push();
-    //     noStroke();
-    //     noFill();
-    //     circle(p1.x + animateCircleX3-(ii), p2.y+100,circleSize);
-    //     pop();
-    //  } else{
+  
         circle(p1.x + animateCircleX3-(ii), p2.y+100,circleSize);
-//  }
+
 }
 for (let ii = 1; ii<animateCircleY3; ii++){
-    // if (cur_frac>1){
-    //     push();
-    //     noStroke();
-    //     noFill();
-    //     circle(p3.x-100, animateCircleY3-(ii)+100, circleSize);
-    //     pop();
-    //  } else{
+  
        
             circle(p3.x-100, animateCircleY3-(ii)+100, circleSize);
     
-        //  }
+    
         }
  for (let ii = 1; ii<animateCircleX4; ii++){
-    // if (cur_frac>1){
-    //     push();
-    //     noStroke();
-    //     noFill();
-    //     circle(p3.x - (animateCircleX4-(ii))-100, p15.y-100,circleSize);
-    //     pop();
-    //  } else{
+   
        
            
                 circle(p3.x - (animateCircleX4-(ii))-100, p15.y-100,circleSize);
-            //  }
+           
             }
 
 for (let ii = 1; ii<animateCircleY4; ii++){
-    // if (cur_frac>1){
-    //     push();
-    //     noStroke();
-    //     noFill();
-    //     circle(p1.x+100, p15.y-(animateCircleY4-(ii))-100, circleSize);
-    //     pop();
-    //  } else{
-                
+   
     circle(p1.x+100, p15.y-(animateCircleY4-(ii))-100, circleSize);
-    //  }          
+            
                 }
 
 for (let ii = 1; ii<animateCircleX5;ii++){
 
-    // if (cur_frac>1){
-    //     push();
-    //     noStroke();
-    //     noFill();
-    //     circle(p1.x +(animateCircleX5 - (ii))+100, p8.y, circleSize);
-    //     push();
-    //     translate(-20,-50);
-    //     image(imgSnakeHead,animateCircleX5+100, p8.y,100,100);
-    //     pop();
-    //     pop();
-    //  } else{
-    //  }          
+          
     circle(p1.x +(animateCircleX5 - (ii))+100, p8.y, circleSize);
     push();
     translate(-20,-50);
@@ -233,6 +169,8 @@ pop();
 
 
 }
+
+//function for drawing the snakes on the sides
 
 function DrawSnakesSides(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15){
     
@@ -310,6 +248,7 @@ function DrawSnakesSides(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11,
         }
 
 
+        // creating the fading rectangle
         rectMode(CORNER);
         
         let seeThroughAmount = 0
