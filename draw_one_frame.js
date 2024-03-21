@@ -6,6 +6,7 @@ function preload(){
     imgMouse = loadImage('mouse.png');
     imgScale = loadImage('scale.png');
     imgSnakeHead = loadImage('snakehead.png');
+    imgSnakeHeadLeft = loadImage('snakeheadLeft.png');
 }
 
 // function for drawing the grid
@@ -21,7 +22,7 @@ function preload(){
  
 	noStroke();
     
-    //stroke("#FFFFFF");
+    stroke("#FFFFFF");
 
     let p1 = createVector(0,0); //top left hand corner vector point
     let p2 = createVector(width/4, 0); // top 1/4 across vector point
@@ -50,6 +51,7 @@ function preload(){
     
 
 		DrawSnakesFirstCentre(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
+        DrawSnakesSides(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15);
 	}
 
 
@@ -81,9 +83,8 @@ rectMode(CENTER);
     let animateCircleX5 = map(cur_frac, 0.8, 0.9,p1.x, p2.x-100, true);
     
 
-    let circleSize = map(cur_frac,0,1,70,100,true);
-    let rectSizeW = map(cur_frac, 0.9, 1, 0, 960, true);
-    let rectSizeH = map(cur_frac,0.9,1,0,540,true);
+    let circleSize = map(cur_frac,0,1,50,75,true);
+    
     
     
     let darkgreen = color("#152614");
@@ -221,10 +222,50 @@ for (let ii = 1; ii<animateCircleX5;ii++){
     circle(p1.x +(animateCircleX5 - (ii))+100, p8.y, circleSize);
     push();
     translate(-20,-50);
-    image(imgSnakeHead,animateCircleX5+100, p8.y,100,100);
+    image(imgSnakeHead,animateCircleX5+110, p8.y+12.5,75,75);
     pop();
 }
 pop();
 
 
+}
+
+function DrawSnakesSides(cur_frac, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15){
+    
+    noFill();
+    let darkgreen = color("#152614");
+    stroke(darkgreen);
+    let circleSizeSnake = map(cur_frac,0,1,25,50,true);
+    let animatedLeftSnakeY1 = map(cur_frac, 0,0.2, p1.y, p15.y, true);
+    let animatedLeftSnakeX1 = map(cur_frac, 0.2, 0.4,p1.x, p1.x+150,true);
+    let animatedLeftSnakeY2 = map(cur_frac, 0.4, 0.6, p1.y, p15.y,true);
+    let animatedLeftSnakeX2 = map(cur_frac, 0.6,0.8, p1.x, p1.x+75,true);
+    let animatedLeftSnakeY3 = map(cur_frac, 0.8, 1, p1.y, p15.y - 50, true);
+
+    for (let ii = 1; ii<animatedLeftSnakeY1; ii++){
+
+        circle(p1.x+150, p1.y + animatedLeftSnakeY1-ii, circleSizeSnake);
+    }
+
+    for (let ii = 1; ii< animatedLeftSnakeX1; ii++){
+
+        circle(p1.x+150 - (animatedLeftSnakeX1-ii), p15.y,circleSizeSnake );
+    }
+
+    for (let ii = 1; ii < animatedLeftSnakeY2; ii++){
+
+        circle(p1.x,p15.y - (animatedLeftSnakeY2 - ii), circleSizeSnake);
+    }
+
+    for (let ii = 1; ii< animatedLeftSnakeX2; ii++){
+
+        circle(p1.x + (animatedLeftSnakeX2 - ii), p1.y, circleSizeSnake);
+    }
+
+    for (let ii = 1; ii < animatedLeftSnakeY3; ii++){
+
+        circle(p1.x+75, p1.y + animatedLeftSnakeY3 - ii, circleSizeSnake);
+
+        image(imgSnakeHeadLeft,p1.x+50, animatedLeftSnakeY3,50,50);
+    }
 }
